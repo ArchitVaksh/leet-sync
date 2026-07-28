@@ -1,6 +1,5 @@
 class Solution(object):
     def addDigits(self, num):
-#leet-sync
         def sum_of_digits(num):
             total = 0
             while num > 0:

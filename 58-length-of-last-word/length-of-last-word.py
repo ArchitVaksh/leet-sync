@@ -4,12 +4,12 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        reversed_word = ""
+        count = 0
         i = len(s)-1
         while i >=0:
             if s[i] != " ":
-                reversed_word += s[i]
-            elif s[i] == " " and len(reversed_word)!=0:
+                count += 1
+            elif s[i] == " " and count !=0:
                 break
             i -= 1
-        return len(reversed_word)
+        return count

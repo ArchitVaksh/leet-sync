@@ -1,9 +1,8 @@
 class Solution(object):
     def isPalindrome(self, x):
-        a = x
-        if a < 0:
+        if x < 0:
             return False
-        n = int(str(a)[ : :-1])
+        n = int(str(x)[ : :-1])
         if n == x:
             return True
         else:

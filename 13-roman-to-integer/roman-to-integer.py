@@ -9,14 +9,9 @@ class Solution(object):
               "C":100,
               "D":500,
               "M":1000}
-        while i > 0:
-            if romans[s[i]] > romans[s[i-1]]:
-                result += romans[s[i]]
-                result -= romans[s[i-1]]
-                i -= 2
+        for i in range(len(s)):
+            if  i+1 < len(s) and romans[s[i]] < romans[s[i+1]]:
+                result -= romans[s[i]]
             else:
                 result += romans[s[i]]
-                i -= 1
-        if i == 0:
-            result += romans[s[i]]
         return result

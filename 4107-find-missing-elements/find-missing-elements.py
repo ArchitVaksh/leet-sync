@@ -1,9 +1,10 @@
 class Solution(object):
     def findMissingElements(self, nums):
-        minimum = min(nums)
-        maximum = max(nums)
+        nums.sort()
+        first = nums[0]
+        last = nums[-1]
         result = []
-        for i in range(minimum,maximum+1):
+        for i in range(first,last+1):
             if i not in nums:
                 result.append(i)
         return result

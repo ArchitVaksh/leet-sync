@@ -3,18 +3,13 @@ class Solution(object):
         result = ""
         index = 0
         while True:
-            current = ""
-            for word in strs:
+            if index >= len(strs[0]):
+                return result
+            first = strs[0][index]
+            for word in strs[1:]:
                 if index >= len(word):
                     return result
-                current += word[index]
-            flag = True
-            for i in range(1, len(current)):
-                if current[i] != current[0]:
-                    flag = False
-                    break
-            if flag:
-                result += current[0]
-                index += 1
-            else:
-                return result
+                if word[index] != first:
+                    return result
+            result += first
+            index += 1

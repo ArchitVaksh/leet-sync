@@ -1,12 +1,28 @@
-class Solution:
-    def isValid(self, s: str) -> bool:
-        mapping = {")": "(", "}": "{", "]": "["}
+class Solution(object):
+    def isValid(self, s):
+
         stack = []
-        for char in s:
-            if char in mapping:
-                top_element = stack.pop() if stack else '#'
-                if mapping[char] != top_element:
-                    return False
+
+        for current in s:
+
+            if current in "({[":
+                stack.append(current)
+
             else:
-                stack.append(char)
-        return not stack
+
+                if len(stack) == 0:
+                    return False
+
+                if current == ")" and stack[-1] == "(":
+                    stack.pop()
+
+                elif current == "}" and stack[-1] == "{":
+                    stack.pop()
+
+                elif current == "]" and stack[-1] == "[":
+                    stack.pop()
+
+                else:
+                    return False
+
+        return len(stack) == 0

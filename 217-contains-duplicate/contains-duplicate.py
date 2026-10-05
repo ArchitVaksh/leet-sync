@@ -6,9 +6,8 @@ class Solution(object):
         """
         seen = set()
         for i in nums:
-            if i not in seen:
-                seen.add(i)
-            elif i in seen:
+            if i in seen:
                 return True
+            seen.add(i)
         return False
             
